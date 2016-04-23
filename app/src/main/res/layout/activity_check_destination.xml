@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/activity_horizontal_margin">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/conditionsTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/CheckDestination.Conditions"
+            android:textSize="@dimen/standardTextSize" />
+
+        <ListView
+            android:id="@+id/conditionsList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/conditionsEmptyListMessage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/CheckDestination.Conditions.Empty"
+            android:textSize="@dimen/standardTextSize"
+            android:gravity="center"
+            android:visibility="gone"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/activity_horizontal_margin">
+
+        <TextView
+            android:id="@+id/standardInfoTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/CheckDestination.StandardInfo"
+            android:textSize="@dimen/standardTextSize" />
+
+        <ListView
+            android:id="@+id/standardInfoList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>

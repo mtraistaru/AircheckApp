@@ -5,6 +5,6 @@ package eu.isdc.aircheckapp;
  */
 public interface Constants {
 
-    String ENDPOINT = "http://api.openweathermap.org/data/2.5";
+    String ENDPOINT = "http://ec2-54-229-86-36.eu-west-1.compute.amazonaws.com";
     String API_KEY = "b6e0702364136c49f78a57704727e8de";
 }

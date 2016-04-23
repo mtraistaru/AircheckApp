@@ -7,9 +7,15 @@ import com.squareup.otto.Bus;
 import javax.inject.Inject;
 
 import eu.isdc.aircheckapp.AircheckApp;
-import eu.isdc.aircheckapp.Constants;
-import eu.isdc.aircheckapp.api.event.GetWeatherByCityEvent;
-import eu.isdc.aircheckapp.domain.GetWeatherByCityResponse;
+import eu.isdc.aircheckapp.api.event.CheckDestinationEvent;
+import eu.isdc.aircheckapp.api.event.GetConditionsEvent;
+import eu.isdc.aircheckapp.api.event.GetSymptomsEvent;
+import eu.isdc.aircheckapp.api.event.SendFeedbackEvent;
+import eu.isdc.aircheckapp.api.request.FeedbackRequest;
+import eu.isdc.aircheckapp.api.response.CheckDestinationResponse;
+import eu.isdc.aircheckapp.api.response.ConditionsResponse;
+import eu.isdc.aircheckapp.api.response.FeedbackResponse;
+import eu.isdc.aircheckapp.api.response.SymptomsResponse;
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
@@ -29,16 +35,58 @@ public class AircheckService {
         AircheckApp.getApp(context).getAircheckComponent().inject(this);
     }
 
-    public void getWeatherByCity(String city) {
-        aircheckEndpoint.getWeatherByCity(city, Constants.API_KEY, new Callback<GetWeatherByCityResponse>() {
+    public void getSymptoms(String text) {
+        aircheckEndpoint.getSymptoms(text, new Callback<SymptomsResponse>() {
             @Override
-            public void success(GetWeatherByCityResponse getWeatherByCityResponse, Response response) {
-                bus.post(new GetWeatherByCityEvent(getWeatherByCityResponse));
+            public void success(SymptomsResponse symptomsResponse, Response response) {
+                bus.post(new GetSymptomsEvent(symptomsResponse));
             }
 
             @Override
             public void failure(RetrofitError error) {
-                bus.post(new GetWeatherByCityEvent(error));
+                bus.post(new GetSymptomsEvent(error));
+            }
+        });
+    }
+
+    public void getConditions(String text) {
+        aircheckEndpoint.getConditions(text, new Callback<ConditionsResponse>() {
+            @Override
+            public void success(ConditionsResponse conditionsResponse, Response response) {
+                bus.post(new GetConditionsEvent(conditionsResponse));
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                bus.post(new GetConditionsEvent(error));
+            }
+        });
+    }
+
+    public void sendFeedback(FeedbackRequest feedbackRequest) {
+        aircheckEndpoint.sendFeedback(feedbackRequest, new Callback<FeedbackResponse>() {
+            @Override
+            public void success(FeedbackResponse feedbackResponse, Response response) {
+                bus.post(new SendFeedbackEvent(feedbackResponse));
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                bus.post(new SendFeedbackEvent(error));
+            }
+        });
+    }
+
+    public void checkDestination(double latitude, double longitude) {
+        aircheckEndpoint.checkDestination(latitude, longitude, new Callback<CheckDestinationResponse>() {
+            @Override
+            public void success(CheckDestinationResponse checkDestinationResponse, Response response) {
+                bus.post(new CheckDestinationEvent(checkDestinationResponse));
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                bus.post(new CheckDestinationEvent(error));
             }
         });
     }

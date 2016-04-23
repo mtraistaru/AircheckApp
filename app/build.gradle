@@ -18,7 +18,7 @@ android {
     defaultConfig {
         applicationId "eu.isdc.aircheckapp"
         minSdkVersion 21
-        targetSdkVersion 23
+        targetSdkVersion 22
         versionCode 1
         versionName "1.0"
     }
@@ -45,4 +45,6 @@ dependencies {
     compile 'com.squareup.retrofit:retrofit:1.9.0'
     compile 'com.squareup.okhttp:okhttp:2.4.0'
     compile 'com.google.code.gson:gson:2.4'
+
+    compile 'com.android.support:design:23.3.0'
 }

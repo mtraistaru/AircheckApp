@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">AircheckApp</string>
+    <string name="Welcome.Message">Welcome to Healthy Travel!</string>
+    <string name="Welcome.Destination">is a very common destination place. Please complete our current health survey for a better travel experience.</string>
+    <string name="Destination.Question">Where do you want to go?</string>
+    <string name="Destination.Hint">example: Bucharest</string>
+    <string name="Destination.Error">Cannot get address for provided location name</string>
+    <string name="Symptoms.Hint">Type your symptoms here. Ex: cough</string>
+    <string name="Conditions.Hint">Type your health condition here. Ex: common cold</string>
+    <string name="Button.Check">Check</string>
+    <string name="Button.Next">Next</string>
+    <string name="Button.Skip">Skip</string>
+    <string name="Button.HealthSurvey">Complete Health Survey</string>
+    <string name="CheckDestination.Conditions">Conditions</string>
+    <string name="CheckDestination.Conditions.Empty">Sorry, no extra health conditions reported for this area yet.</string>
+    <string name="CheckDestination.StandardInfo">Standard Information</string>
+    <string name="Temperature">Temperature</string>
+    <string name="Humidity">Humidity</string>
+    <string name="Pollution">Pollution</string>
 </resources>

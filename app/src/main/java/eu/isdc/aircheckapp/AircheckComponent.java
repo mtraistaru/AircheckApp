@@ -3,7 +3,10 @@ package eu.isdc.aircheckapp;
 import javax.inject.Singleton;
 
 import dagger.Component;
-import eu.isdc.aircheckapp.activity.MainActivity;
+import eu.isdc.aircheckapp.activity.ConditionsActivity;
+import eu.isdc.aircheckapp.activity.TravelActivity;
+import eu.isdc.aircheckapp.activity.WelcomeActivity;
+import eu.isdc.aircheckapp.activity.SymptomsActivity;
 import eu.isdc.aircheckapp.module.CommonModule;
 import eu.isdc.aircheckapp.module.WebserviceModule;
 import eu.isdc.aircheckapp.api.AircheckService;
@@ -16,7 +19,13 @@ import eu.isdc.aircheckapp.api.AircheckService;
 @Component(modules = {CommonModule.class, WebserviceModule.class})
 public interface AircheckComponent {
 
-    void inject(MainActivity mainActivity);
+    void inject(WelcomeActivity welcomeActivity);
 
     void inject(AircheckService aircheckService);
+
+    void inject(SymptomsActivity symptomsActivity);
+
+    void inject(ConditionsActivity conditionsActivity);
+
+    void inject(TravelActivity travelActivity);
 }
